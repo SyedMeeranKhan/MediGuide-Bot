@@ -1,0 +1,2478 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey", "What's up", "Good morning", "Good evening"],
+      "responses": ["Hello! How can I assist you today?", "Hi there! What’s on your mind?", "Hey! How can I help you today?"]
+    },
+    {
+      "tag": "thank_you",
+      "patterns": ["Thank you", "Thanks", "I appreciate it", "Thanks a lot"],
+      "responses": ["You're welcome! Let me know if there's anything else I can help with.", "Happy to help!", "No problem at all!"]
+    },
+    {
+      "tag": "body_pain",
+      "patterns": ["I have body pain", "My body hurts", "I'm experiencing body pain"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your body pain. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_body_pain_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for body pain in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Please consult a doctor due to high blood pressure.",
+              "low": "Please consult a doctor due to low blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Please consult a doctor due to diabetes.",
+                  "no": "A gentle massage with a small amount of coconut or olive oil can relax muscles and reduce pain. Focus on their legs, arms, or back, depending on where the pain is. Massaging before bedtime may also help them sleep better."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts.",
+              "low": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Walking and swimming may help reduce back and knee pain. Arm exercises and shoulder rolls are good for calming shoulder pain. Alternate ice and heat therapy, or take a hot bath for quick relief.",
+                  "no": "Walking and swimming may help reduce back and knee pain. Arm exercises and shoulder rolls are good for calming shoulder pain. Alternate ice and heat therapy, or take a hot bath for quick relief."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Boil 1.5 tablespoons of powdered nutmeg in 1/2 cup sesame oil. Cool and apply on affected parts.",
+              "low": "Boil 1.5 tablespoons of powdered nutmeg in 1/2 cup sesame oil. Cool and apply on affected parts.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Boil 1.5 tablespoons of powdered nutmeg in 1/2 cup sesame oil. Cool and apply on affected parts.",
+                  "no": "Boil 1.5 tablespoons of powdered nutmeg in 1/2 cup sesame oil. Cool and apply on affected parts."
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts.",
+              "low": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts.",
+                  "no": "Boil 3 tablespoons of powdered nutmeg (jaiphal) in 1 cup sesame oil (til ka tel). Cool and apply on affected parts."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Boil 2 tablespoons of powdered nutmeg in 1 cup sesame oil. Cool and apply on affected parts.",
+              "low": "Boil 2 tablespoons of powdered nutmeg in 1 cup sesame oil. Cool and apply on affected parts.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Boil 2 tablespoons of powdered nutmeg in 1 cup sesame oil. Cool and apply on affected parts.",
+                  "no": "Boil 2 tablespoons of powdered nutmeg in 1 cup sesame oil. Cool and apply on affected parts."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+
+
+
+  
+
+  {   "tag": "Fatigue",
+      "patterns": ["I have Fatigue", "suffering from fatigue", "I'm experiencing fatigue"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_fatigue_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for fatigue in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Please consult a doctor due to high blood pressure.",
+              "low": "Please consult a doctor due to low blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Please consult a doctor due to diabetes.",
+                  "no": "Make sure your child gets regular exercise. But try not to let them overdo it. Make sure your child gets plenty of rest."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable; both grapefruit and lemon juice can be beneficial",
+              "low": "Use caution with grapefruit, as it may interact with some medications; otherwise, suitable",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in moderation; monitor intake due to natural sugars",
+                  "no": "Make sure your child gets regular exercise. But try not to let them overdo it. ... Make sure your child gets plenty of rest. Help your child eat a variety of healthy foods. Make sure your child does not skip any meals. Limit medicines that can cause fatigue."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable; both grapefruit and lemon juice can be beneficial",
+              "low": "Use caution with grapefruit, as it may interact with some medications; otherwise, suitable",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in moderation; monitor intake due to natural sugars",
+                  "no": "Take 1/2 glass of grapefruit and lemon juice in equal parts to dispel fatigue after a day's work. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high":"Suitable; both grapefruit and lemon juice can be beneficial",
+              "low":  "Use caution with grapefruit, as it may interact with some medications; otherwise, suitable",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in moderation; monitor intake due to natural sugars",
+                  "no": "Take a glass of grapefruit and lemon juice in equal parts to dispel fatigue and general tiredness after a day's work."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable; both grapefruit and lemon juice can be beneficial",
+              "low": "Use caution with grapefruit, as it may interact with some medications; otherwise, suitable",
+              "normal": {
+                "diabetes": {
+                  "yes":  "Suitable in moderation; monitor intake due to natural sugars",
+                  "no": "Take a glass of grapefruit and lemon juice in equal parts to dispel fatigue and general tiredness after a day's work."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+
+
+    { "tag": "Body Burns",
+      "patterns": ["I have body burns", "i got body burns", "I'm experiencing body burns","my body got burnt"],
+      "responses": [
+      {
+        "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+        "follow_up": {
+          "questions": [
+            { "question": "What is your age?", "key": "age" },
+            { "question": "What is your blood pressure (if known)?", "key": "bp" },
+            { "question": "Are you diabetic?", "key": "diabetes" }
+          ],
+          "context_set": "collecting_body_burns_data"
+        }
+      }
+    ],
+    "logic": {
+      "age_conditions": [
+        {
+          "range": [0, 2],
+          "response": "Please consult a doctor for body burns in infants."
+        },
+        {
+          "range": [3, 4],
+          "bp_check": {
+            "high": "Please consult a doctor due to high blood pressure.",
+            "low": "Please consult a doctor due to low blood pressure.",
+            "normal": {
+              "diabetes": {
+                "yes": "Please consult a doctor due to diabetes.",
+                "no": "Use aleo vera for soothing.  Use honey as it anti bacterial and proved beneficial in body burns."
+              }
+            }
+          }
+        },
+        {
+          "range": [5, 12],
+          "bp_check": {
+            "high": "Suitable; these remedies are safe for topical application.Running cool water over a first- or second-degree burn for 20 minutes ",
+            "low":"Safe; monitor the use of ice packs to avoid extreme temperature changes" ,
+            "normal": {
+              "diabetes": {
+                "yes": "Suitable; the ingredients do not affect blood sugar levels.Aloe vera has long been used to speed up the healing of first- and second-degree burns honey may provide some clinical benefit when a person applies it to burns",
+                "no": "Running cool water over a first- or second-degree burn for 20 minutes Aloe vera has long been used to speed up the healing of first- and second-degree burns honey may provide some clinical benefit when a person applies it to burns."
+              }
+            }
+          }
+        },
+        {
+          "range": [13, 19],
+          "bp_check": {
+            "high": "Suitable; these remedies are safe for topical application.Running cool water over a first- or second-degree burn for 20 minutes ",
+            "low": "Safe; monitor the use of ice packs to avoid extreme temperature changes" ,
+            "normal": {
+              "diabetes": {
+                "yes": "Suitable; the ingredients do not affect blood sugar levels.Aloe vera has long been used to speed up the healing of first- and second-degree burns honey may provide some clinical benefit when a person applies it to burns",
+                "no": "Mash half a ripe banana and apply on burns. Bandage with a small betel leaf. If you have a minor burn, immediately place an ice pack on the burnt area for 5-10 minutes. "
+              }
+            }
+          }
+        },
+        {
+          "range": [20, 59],
+          "bp_check": {
+            "high": "Suitable; these remedies are safe for topical application.Running cool water over a first- or second-degree burn for 20 minutes ",
+            "low":   "Safe; monitor the use of ice packs to avoid extreme temperature changes" ,
+            "normal": {
+              "diabetes": {
+                "yes": "Suitable; the ingredients do not affect blood sugar levels.Aloe vera has long been used to speed up the healing of first- and second-degree burns honey may provide some clinical benefit when a person applies it to burns",
+                "no": "Mash a ripe banana and apply on burns. Bandage with betel leaves (pan ka patta). If you have a minor burn, immediately place an ice pack on the burnt area for 10 minutes."
+              }
+            }
+          }
+        },
+        {
+          "range": [60, 120],
+          "bp_check": {
+            "high": "Suitable; these remedies are safe for topical application.Running cool water over a first- or second-degree burn for 20 minutes or Mash a ripe banana and apply on burns. Bandage with betel leaves. If you have a minor burn, immediately place an ice pack on the burnt area for 10 minutes. ",
+            "low": "Safe; Mash a ripe banana and apply on burns. Bandage with betel leaves. If you have a minor burn, immediately place an ice pack on the burnt area for 10 minutes." ,
+            "normal": {
+              "diabetes": {
+                "yes":  "Suitable; the ingredients do not affect blood sugar levels.Mash a ripe banana and apply on burns. Bandage with betel leaves. If you have a minor burn, immediately place an ice pack on the burnt area for 10 minutes.",
+                "no": "Mash a ripe banana and apply on burns. Bandage with betel leaves. If you have a minor burn, immediately place an ice pack on the burnt area for 10 minutes."
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+
+
+  {   "tag": "Indigestion",
+      "patterns": ["I have indigestion", "i got constipated", "I'm experiencing constipated"," i feel i have indigestion"],
+      "responses": [
+      {
+        "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+        "follow_up": {
+          "questions": [
+            { "question": "What is your age?", "key": "age" },
+            { "question": "What is your blood pressure (if known)?", "key": "bp" },
+            { "question": "Are you diabetic?", "key": "diabetes" }
+          ],
+          "context_set": "collecting_indigestion_data"
+        }
+      }
+    ],
+    "logic": {
+      "age_conditions": [
+        {
+          "range": [0, 2],
+          "response": "Please consult a doctor for indigestion in infants."
+        },
+        {
+          "range": [3, 4],
+          "bp_check": {
+            "high": "Consuming bland foods such as plain white rice, plain pasta, boiled chicken, liquid-based foods such as soup avoiding fatty, greasy foods, like fries and burgers. limiting citrus fruits (the acid in citrus fruits can upset the digestive tract)",
+            "low": "Please consult a doctor due to low blood pressure.",
+            "normal": {
+              "diabetes": {
+                "yes": "Consuming bland foods such as plain white rice, plain pasta, boiled chicken, liquid-based foods such as soup avoiding fatty, greasy foods, like fries and burgers. limiting citrus fruits (the acid in citrus fruits can upset the digestive tract)",
+                "no": "Consuming bland foods such as plain white rice, plain pasta, boiled chicken, liquid-based foods such as soup avoiding fatty, greasy foods, like fries and burgers. limiting citrus fruits (the acid in citrus fruits can upset the digestive tract)"
+              }
+            }
+          }
+        },
+        {
+          "range": [5, 12],
+          "bp_check": {
+            "high": "Use caution with salt and sugar; otherwise, suitable in moderation.Eat smaller meals throughout the day. Avoid late-night snacks  Limit foods that are spicy or high in acid",
+            "low":"Generally safe." ,
+            "normal": {
+              "diabetes": {
+                "yes": "Not recommended due to sugar content; consider using honey in moderation or a low-glycemic sweetener instead",
+                "no": "Eat smaller meals throughout the day. Avoid late-night snacks  Limit foods that are spicy or high in acid. These include citrus, tomatoes, and vinegar. Have your child wait 2 to 3 hours after eating before lying down or exercising."
+              }
+            }
+          }
+        },
+        {
+          "range": [13, 19],
+          "bp_check": {
+            "high": "Use caution with salt and sugar; otherwise, suitable in moderation.Eat smaller meals throughout the day. Avoid late-night snacks  Limit foods that are spicy or high in acid",
+            "low": "Generally safe.Use fried jira powder with honey to hold inside mouth for some time before food." ,
+            "normal": {
+              "diabetes": {
+                "yes":"5 ml juice of fruit, a pinch of black salt ",
+                "no": "5 ml juice of fruit, a pinch of black salt or fried jira powder with honey to hold inside mouth for some time before food.  "
+              }
+            }
+          }
+        },
+        {
+          "range": [20, 59],
+          "bp_check": {
+            "high": "Suitable; these remedies are safe. Use fried Jira powder with honey or sugar to hold inside mouth for some time before food.",
+            "low":   "Safe; 10 ml juice of fruit, 1 gm black salt or fried Jira powder with honey or sugar to hold inside mouth for some time before food." ,
+            "normal": {
+              "diabetes": {
+                "yes": "10 ml juice of fruit, 1 gm black salt",
+                "no": "10 ml juice of fruit, 1 gm black salt or fried Jira powder with honey or sugar to hold inside mouth for some time before food."
+              }
+            }
+          }
+        },
+        {
+          "range": [60, 120],
+          "bp_check": {
+            "high": "generally safe, use fried jira powder with honey to hold inside mouth for some time before food.",
+            "low": "10 ml juice of fruit, 1 gm black salt or fried jira powder with honey to hold inside mouth for some time before food." ,
+            "normal": {
+              "diabetes": {
+                "yes":  "Suitable; the ingredients do not affect blood sugar levels.10 ml juice of fruit, 1 gm black salt",
+                "no": "10 ml juice of fruit, 1 gm black salt or fried jira powder with honey to hold inside mouth for some time before food."
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+
+
+  {   "tag": "Baldness",
+      "patterns": ["I have bald head", "i got bald", "I'm experiencing baldness"," i feel i have baldness","ganja ho gaya hu mein"],
+      "responses": [
+  {
+    "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+    "follow_up": {
+      "questions": [
+        { "question": "What is your age?", "key": "age" }
+      
+      ],
+      "context_set": "collecting_baldness_data"
+    }
+  }
+],
+"logic": {
+  "age_conditions": [
+    {
+      "range": [0, 2],
+      "response": "its not an issue please wait for them to grow"
+    },
+    {
+      "range": [3, 4],
+      "bp_check": {
+        "high": "Consuming bland foods such as plain white rice, plain pasta, boiled chicken, liquid-based foods such as soup avoiding fatty, greasy foods, like fries and burgers. limiting citrus fruits (the acid in citrus fruits can upset the digestive tract)",
+        "low": "Please consult a doctor due to low blood pressure.",
+        "normal": {
+          "diabetes": {
+            "yes": "Consuming bland foods such as plain white rice, plain pasta, boiled chicken, liquid-based foods such as soup avoiding fatty, greasy foods, like fries and burgers. limiting citrus fruits (the acid in citrus fruits can upset the digestive tract)",
+            "no": "Consult the Doctor ASAP!"
+          }
+        }
+      }
+    },
+    {
+      "range": [5, 12],
+      "bp_check": {
+        "high": "Use caution with salt and sugar; otherwise, suitable in moderation.Eat smaller meals throughout the day. Avoid late-night snacks  Limit foods that are spicy or high in acid",
+        "low":"Generally safe." ,
+        "normal": {
+          "diabetes": {
+            "yes": "Not recommended due to sugar content; consider using honey in moderation or a low-glycemic sweetener instead",
+            "no": "Gentle massages with some oil (rosemary, coconut, almond, or olive), to stimulate blood circulation a balanced diet that's rich in biotin and vitamins A, C, D and E Be gentle when combing and styling your child's hair and keep ponytails and braids loose to prevent hair loss."
+          }
+        }
+      }
+    },
+    {
+      "range": [13, 19],
+      "bp_check": {
+        "high": "Use caution with salt and sugar; otherwise, suitable in moderation.Eat smaller meals throughout the day. Avoid late-night snacks  Limit foods that are spicy or high in acid",
+        "low": "Generally safe.Use fried jira powder with honey to hold inside mouth for some time before food." ,
+        "normal": {
+          "diabetes": {
+            "yes":"5 ml juice of fruit, a pinch of black salt ",
+            "no": "Boil Â½ cup mustard oil with 2 tablespoons henna leaves. Filter and bottle. Massage on the bald patches regularly.  "
+          }
+        }
+      }
+    },
+    {
+      "range": [20, 59],
+      "bp_check": {
+        "high": "Suitable; these remedies are safe. Use fried Jira powder with honey or sugar to hold inside mouth for some time before food.",
+        "low":   "Safe; 10 ml juice of fruit, 1 gm black salt or fried Jira powder with honey or sugar to hold inside mouth for some time before food." ,
+        "normal": {
+          "diabetes": {
+            "yes": "10 ml juice of fruit, 1 gm black salt",
+            "no": "Boil 1 cup mustard oil (sarson ka tel) with 4 tablespoon henna (mehendi) leaves. Filter and bottle. Massage on the bald patches regularly."
+          }
+        }
+      }
+    },
+    {
+      "range": [60, 120],
+      "bp_check": {
+        "high": "generally safe, use fried jira powder with honey to hold inside mouth for some time before food.",
+        "low": "10 ml juice of fruit, 1 gm black salt or fried jira powder with honey to hold inside mouth for some time before food." ,
+        "normal": {
+          "diabetes": {
+            "yes":  "Suitable; the ingredients do not affect blood sugar levels.10 ml juice of fruit, 1 gm black salt",
+            "no": "Boil 1 cup mustard oil with 4 tablespoons henna leaves. Filter and bottle. Massage on the bald patches regularly."}
+        }
+      }
+    }
+  ]
+}
+},
+
+
+
+{       "tag": "Breathing problem",
+      "patterns": ["I have problem in breathing", "i cant breathe", "I'm having difficulty in breathing"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_breathing_prob_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for breathig problems in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Please consult a doctor due to low blood pressure.",
+      "normal": {
+        "diabetes": {
+          "yes": "Please consult a doctor due to diabetes.",
+          "no": "Increase fluids. Have them rest in an upright position. Use heat on their chest by heating pad. Add some humidity by taking steam."
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Suitable; this remedy is safe.Give a spoonful of honey (over age 1) A teaspoon of honey can help combat coughing",
+      "low": "Suitable; this remedy is safe.Give a spoonful of honey (over age 1) A teaspoon of honey can help combat coughing ",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable; the ingredients do not significantly impact blood sugar levels.Ginger may ease a dry or asthmatic cough . Use a cool-mist humidifier near the child to add moisture to the air. Make the Child Comfortable. Let the child rest",
+          "no": "Ginger may ease a dry or asthmatic cough Give a spoonful of honey (over age 1) A teaspoon of honey can help combat coughing and soothe your child's throat. Use a cool-mist humidifier near the child to add moisture to the air. Make the Child Comfortable. Let the child rest"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Suitable; Mix 0.5 teaspoon camphor in Â¼ cup slightly warmed coconut oil and apply on the chest. Boil 1 tablespoon fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days. ",
+      "low": "Mix 0.5 teaspoon camphor in Â¼ cup slightly warmed coconut oil and apply on the chest. Boil 1 tablespoon fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable .Mix 0.5 teaspoon camphor in Â¼ cup slightly warmed coconut oil and apply on the chest. Boil 1 tablespoon fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days. ",
+          "no": "Mix 0.5 teaspoon camphor in Â¼ cup slightly warmed coconut oil and apply on the chest. Boil 1 tablespoon fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days.  "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Suitable. Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoon fennel seeds (saunf) in 1 cup water till it is reduced to half. Filter. Take 1 tablespoon every morning and evening for a few days.",
+      "low":  "this remedy can be used for low bp.Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoon fennel seeds (saunf) in 1 cup water till it is reduced to half. Filter. Take 1 tablespoon every morning and evening for a few days.",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable.Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoon fennel seeds (saunf) in 1 cup water till it is reduced to half. Filter. Take 1 tablespoon every morning and evening for a few days.",
+          "no": "Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoon fennel seeds (saunf) in 1 cup water till it is reduced to half. Filter. Take 1 tablespoon every morning and evening for a few days."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Suitable for high bp. Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoons fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days.",
+      "low": "suitable,Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoons fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Suitable for diabetic patient.Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoons fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days.",
+          "no": "Mix 1 teaspoon camphor in Â½ cup slightly warmed coconut oil and apply on the chest. Boil 2 tablespoons fennel seeds in 1 cup water till it is reduced to half. Take 1 tablespoon every morning and evening for a few days."
+        }
+      }
+    }
+  }
+]
+}
+},
+
+
+{       "tag": "body swelling",
+      "patterns": ["body is swelling", "i am having swelling on body", "my body is swelled"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_body_swellig_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for swellling of body problems in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Please consult a doctor due to low blood pressure.",
+      "normal": {
+        "diabetes": {
+          "yes": "Raising the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling .",
+          "no": "Raising the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling "
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "if the sweling is due to an injury then follow the remedy otherwise consult the doctor . Raise the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling ",
+      "low": "Suitable; Raising the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling  ",
+      "normal": {
+        "diabetes": {
+          "yes": "Raising the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling ",
+          "no": "Raising the area above the level of the heart to help with swelling. Wrapping the area with a compression bandage to help with swelling. Putting ice on the area to help with pain and swelling "
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "If swelling is caused without any injury then consult the doctor otherwise this redemy is suitable .Grind black cumin seeds with a little hot water and apply on affected parts. ",
+      "low": "Grind black cumin seeds with a little hot water and apply on affected parts. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable ,Grind black cumin seeds with a little hot water and apply on affected parts. ",
+          "no": "Grind black cumin seeds with a little hot water and apply on affected parts. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"If swelling is caused without any injury then consult the doctor otherwise this redemy is suitable .Grind black cumin seeds with a little hot water and apply on affected parts.",
+      "low":  "this remedy can be used for low bp.Grind black cumin seeds with a little hot water and apply on affected parts. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Grind black cumin seeds with a little hot water and apply on affected parts. ",
+          "no": "Grind black cumin seeds with a little hot water and apply on affected parts. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Suitable for high bp. Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month..",
+      "low": "suitable,Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+          "no": "Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month."
+        }
+      }
+    }
+  }
+]
+}
+},
+
+{       "tag": "eye aching",
+      "patterns": ["eyes are aching", "i am having ache in eys", "my eyes ache badly"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_eye_Aching_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for eye aching in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Try using artificial tears at least 4 times a dayLimit screen time Place a cucumber slice for soothing effects",
+      "normal": {
+        "diabetes": {
+          "yes": "Try using artificial tears at least 4 times a dayLimit screen time Place a cucumber slice for soothing effects",
+          "no": "Try using artificial tears at least 4 times a dayLimit screen time Place a cucumber slice for soothing effects"
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "if the child is havig severe ache please consult the doctor otherwise ,use cold compress to reduce swelling, inflammation Try wet linen cloth and put in your childs eye for 15 to 20 minutes Reduce screen time  ",
+      "low": "Use cold compress to reduce swelling, inflammation Try wet linen cloth and put in your childs eye for 15 to 20 minutes Reduce screen time  ",
+      "normal": {
+        "diabetes": {
+          "yes": "Use cold compress to reduce swelling, inflammation Try wet linen cloth and put in your childs eye for 15 to 20 minutes Reduce screen time  ",
+          "no": "Use cold compress to reduce swelling, inflammation Try wet linen cloth and put in your childs eye for 15 to 20 minutes Reduce screen time "
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "if the person is havig severe ache please consult the doctor otherwise Powder equal quantities of liquorice and cumin. Take 1/8 teaspoon every day along with 1/2 teaspoon honey for 2 weeks. ",
+      "low": "Powder equal quantities of liquorice and cumin.",
+      "normal": {
+        "diabetes": {
+          "yes": " Not recommended due to the high sugar content in honey; consider reducing or omitting the honey.Use Powder equal quantities of liquorice and cumin.",
+          "no": "Powder equal quantities of liquorice and cumin. Take 1/8 teaspoon every day along with 1/2 teaspoon honey for 2 weeks. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":" If the person is havig severe ache please consult the doctor otherwise Powder equal quantities of liquorice (mulathi) and cumin (jeera). Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+      "low":  " Powder equal quantities of liquorice (mulathi) and cumin (jeera). Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+      "normal": {
+        "diabetes": {
+          "yes": "Powder equal quantities of liquorice (mulathi) and cumin (jeera).  ",
+          "no": "Powder equal quantities of liquorice (mulathi) and cumin (jeera). Take Â¼ teaspoon every day along with 1 teaspoon honey for a month."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": " If the person is havig severe ache please consult the doctor otherwise Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+      "low": "Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Powder equal quantities of liquorice (mulathi) and cumin (jeera).",
+          "no": "Powder equal quantities of liquorice and cumin. Take Â¼ teaspoon every day along with 1 teaspoon honey for a month.."
+        }
+      }
+    }
+  }
+]
+}
+},
+
+
+
+
+{       "tag": "Muscular Cramps",
+      "patterns": ["hey having muscular cramps", "i am having muscular cramps", "my muscles are i cramp"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_muscular_cramp_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for muscular cramps in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Stretch and massage the muscle. Can also take a warm shower or bath to relax the muscle.  You can use coconut water to help relaxing the cramps.",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable; clove oil does not affect blood sugar levels. have your child stretch and massage the muscle. Your child can also take a warm shower or bath to relax the muscle.  You can use coconut water to help relaxing the cramps.",
+          "no": "Stretch and massage the muscle. Can also take a warm shower or bath to relax the muscle.  You can use coconut water to help relaxing the cramps."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": " Rub your child's legs. Children often respond to gentle massage. Use a heating pad. Heat can help soothe sore muscles Stretching exercises. Put ice or a cold pack on the sore area for 10 to 20 minutes at a time",
+      "low": "Rub your child's legs. Children often respond to gentle massage. Use a heating pad. Heat can help soothe sore muscles Stretching exercises. Put ice or a cold pack on the sore area for 10 to 20 minutes at a time",
+      "normal": {
+        "diabetes": {
+          "yes": "Rub your child's legs. Children often respond to gentle massage. Use a heating pad. Heat can help soothe sore muscles Stretching exercises. Put ice or a cold pack on the sore area for 10 to 20 minutes at a time",
+          "no": "Rub child's legs. Children often respond to gentle massage. Use a heating pad. Heat can help soothe sore muscles Stretching exercises. Put ice or a cold pack on the sore area for 10 to 20 minutes at a time"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Apply clove oil on the affected parts. ",
+      "low": "Apply clove oil on the affected parts. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Apply clove oil on the affected parts.  ",
+          "no": "Apply clove oil on the affected parts. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Apply clove oil on the affected parts. ",
+      "low":  "Apply clove oil on the affected parts.  ",
+      "normal": {
+        "diabetes": {
+          "yes": " Apply clove oil on the affected parts. ",
+          "no": "Apply clove oil on the affected parts. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Apply clove oil on the affected parts.  ",
+      "low": "Apply clove oil on the affected parts. ",
+      "normal": {
+        "diabetes": {
+          "yes":  "Apply clove oil on the affected parts. ",
+          "no": "Apply clove oil on the affected parts. "
+        }
+      }
+    }
+  }
+]
+}
+},
+
+
+
+
+
+
+
+{"tag": "Blood Deficiency",
+      "patterns": ["having bllod deficiency", "i am having Blood Deficiency", "suffering from Blood Deficiency","i am experiencing Blood Deficiency"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Blood_Deficiency_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Blood Deficiency in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please avoid meat Try inclue giving them iron rich friuits make them in to smoothie..",
+      "low": "Try include beef, poultry and sea food in the meal Give them iron rich friuits make them in to smoothie.",
+      "normal": {
+        "diabetes": {
+          "yes": "Try include beef, poultry and sea food in the meal Give them iron rich friuits make them in to smoothie.",
+          "no": "Try include beef, poultry and sea food in the meal Give them iron rich friuits make them in to smoothie."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes . avoid whole milk due to bp",
+      "low": "Include iron-rich foods in the family's diet.Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk should be given too",
+      "normal": {
+        "diabetes": {
+          "yes": "keep in mind not to take sugary things.Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk should be given too",
+          "no": "Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk can also help in this"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Take 1 teaspoon of amla juice and mix it with one teaspoon each of honey and lime. Add 1/2 cup of water and drink on an empty stomach every morning. ",
+      "low": "Take 1 teaspoon of amla juice and mix it with one teaspoon each of honey and lime. Add 1/2 cup of water and drink on an empty stomach every morning. ",
+      "normal": {
+        "diabetes": {
+          "yes": "keep in mind not to take sugary things.Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk should be given too ",
+          "no": "Take 1 teaspoon of amla juice and mix it with one teaspoon each of honey and lime. Add 1/2 cup of water and drink on an empty stomach every morning. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Take 2 teaspoon of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning.",
+      "low":  "Take 2 teaspoon of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning. ",
+      "normal": {
+        "diabetes": {
+          "yes": "keep in mind not to take sugary things.Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk should be given too ",
+          "no": "Take 2 teaspoon of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Take 2 teaspoons of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning. ",
+      "low": "Take 2 teaspoons of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning.",
+      "normal": {
+        "diabetes": {
+          "yes":  "keep in mind not to take sugary things.Include iron-rich foods in the family's diet.  Serve fruits and vegetables high in vitamin C or a glass of orange juice at mealtimes Whole milk should be given too",
+          "no": "Take 2 teaspoons of amla juice and mix it with two teaspoonfuls each of honey and lime. Add 1 teacup water and drink on an empty stomach every morning."
+        }
+      }
+    }
+  }
+]
+}
+},
+
+
+
+
+{"tag": "Depression",
+      "patterns": [ "i am having Depression", "i am experiencing Depression","i am depressed","suffering from Depression"],
+      "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Depression_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Depression in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Give your child a lot of positive attention, especially talking and listening to them about their concerns and feelings. Help your child to get the right amount of sleep.",
+      "normal": {
+        "diabetes": {
+          "yes": "Give your child a lot of positive attention, especially talking and listening to them about their concerns and feelings. Help your child to get the right amount of sleep.",
+          "no": "Give your child a lot of positive attention, especially talking and listening to them about their concerns and feelings. Help your child to get the right amount of sleep."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Teach them relaxation exercises, like deep breathing, and practice them together. Encourage positive habits: Help your child stick to regular eating and sleeping habits and stay active. Physical activity and music are both great ways to boost their mood.But if you think this isn't helping please consult the therapist ",
+      "low": "Teach them relaxation exercises, like deep breathing, and practice them together. Encourage positive habits: Help your child stick to regular eating and sleeping habits and stay active. Physical activity and music are both great ways to boost their mood.",
+      "normal": {
+        "diabetes": {
+          "yes": "Teach them relaxation exercises, like deep breathing, and practice them together. Encourage positive habits: Help your child stick to regular eating and sleeping habits and stay active. Physical activity and music are both great ways to boost their mood.",
+          "no": "Teach them relaxation exercises, like deep breathing, and practice them together. Encourage positive habits: Help your child stick to regular eating and sleeping habits and stay active. Physical activity and music are both great ways to boost their mood."
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Use caution with nutmeg, as it can have a stimulating effect; otherwise, both remedies are suitable.Boil 1/8 teaspoon powdered cardamom seeds in thin tea water and drink. Mix a pinch of nutmeg powder with 1/2 tablespoon amla juice. Take twice a day.",
+      "low": "Boil 1/8 teaspoon powdered cardamom seeds in thin tea water and drink. Mix a pinch of nutmeg powder with 1/2 tablespoon amla juice.",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable; the ingredients do not significantly impact blood sugar levels. Boil 1/8 teaspoon powdered cardamom seeds in thin tea water and drink. Mix a pinch of nutmeg powder with 1/2 tablespoon amla juice. Take twice a day.  ",
+          "no": "Boil 1/8 teaspoon powdered cardamom seeds in thin tea water and drink. Mix a pinch of nutmeg powder with 1/2 tablespoon amla juice. Take twice a day. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Use caution with nutmeg, as it can have a stimulating effect;Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day.",
+      "low":  "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day. ",
+          "no": "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Use caution with nutmeg, as it can have a stimulating effect .Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. ",
+      "low": "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day.",
+          "no": "Boil Â¼ teaspoon powdered cardamom (chhoti illaichi) seeds in thin tea water and drink. Mix 1/8 teaspoon nutmeg (jaiphal) powder with 1 tablespoon freshly extracted amla juice. Take 3 times a day."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+
+{     "tag": "Backache",
+    "patterns": ["back are aching", "i am having Backache", "my back ache badly"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Backache_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Backache in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Warm Bath: A warm bath can soothe and relax muscles. Lavender Oil Rub: Use a few drops of diluted lavender oil for a gentle back rub..",
+      "low": "Warm Bath: A warm bath can soothe and relax muscles. Lavender Oil Rub: Use a few drops of diluted lavender oil for a gentle back rub.",
+      "normal": {
+        "diabetes": {
+          "yes": "Warm Bath: A warm bath can soothe and relax muscles. Lavender Oil Rub: Use a few drops of diluted lavender oil for a gentle back rub.",
+          "no": "Warm Bath: A warm bath can soothe and relax muscles. Lavender Oil Rub: Use a few drops of diluted lavender oil for a gentle back rub."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Stretching Exercises: Simple stretching can help relieve back tension. Warm Compress with Chamomile Tea: Soak a cloth in chamomile tea, warm it, and apply to the affected area ",
+      "low": "Stretching Exercises: Simple stretching can help relieve back tension. Warm Compress with Chamomile Tea: Soak a cloth in chamomile tea, warm it, and apply to the affected area",
+      "normal": {
+        "diabetes": {
+          "yes": "Stretching Exercises: Simple stretching can help relieve back tension. Warm Compress with Chamomile Tea: Soak a cloth in chamomile tea, warm it, and apply to the affected area",
+          "no": "Stretching Exercises: Simple stretching can help relieve back tension. Warm Compress with Chamomile Tea: Soak a cloth in chamomile tea, warm it, and apply to the affected area"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Rub a little ginger paste on the affected area. Don't worry about ginger it's just used to apply so it won't have issue with blood pressure",
+      "low": "Rub a little ginger paste on the affected area. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Rub a little ginger paste on the affected area.  ",
+          "no": "Rub a little ginger paste on the affected area. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Rub a little ginger paste on the affected area.Don't worry about ginger it's just used to apply so it won't have issue with blood pressure ",
+      "low":  " Rub a little ginger paste on the affected area. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Rub a little ginger paste on the affected area.  ",
+          "no": "Rub a little ginger paste on the affected area. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": " .Rub some ginger paste on the affected area. Apply oil of eucalyptus on it.Suitable; both ginger and eucalyptus oil can be used topically without adverse effects on bp patients",
+      "low": "Rub some ginger paste on the affected area. Apply oil of eucalyptus on it.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Rub some ginger paste on the affected area. Apply oil of eucalyptus on it.",
+          "no": "Rub some ginger paste on the affected area. Apply oil of eucalyptus on it."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+{     "tag": "High Blood Pressure",
+    "patterns": ["Blood pressure is high", "i am having High Blood Pressure", "my Blood Pressure is high"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_High_Blood_Pressure_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for High Blood Pressure in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure in children aged between 2-4.But if the reading is not too high use this remedy...Steamed Broccoli: Broccoli can help regulate blood pressure, so offer it in small amounts. Banana Slices: Bananas are high in potassium, helping balance sodium levels.",
+      "low": "Steamed Broccoli: Broccoli can help regulate blood pressure, so offer it in small amounts. Banana Slices: Bananas are high in potassium, helping balance sodium levels.",
+      "normal": {
+        "diabetes": {
+          "yes": "Steamed Broccoli: Broccoli can help regulate blood pressure, so offer it in small amounts. Banana Slices: Bananas are high in potassium, helping balance sodium levels.",
+          "no": "Steamed Broccoli: Broccoli can help regulate blood pressure, so offer it in small amounts. Banana Slices: Bananas are high in potassium, helping balance sodium levels."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure in children aged between 5-12.But if the reading is not too high use Beetroot Juice: A small glass of diluted beetroot juice can help manage blood pressure. Celery Sticks: Celery has natural compounds that may help lower blood pressure ",
+      "low": "Beetroot Juice: A small glass of diluted beetroot juice can help manage blood pressure",
+      "normal": {
+        "diabetes": {
+          "yes": "Beetroot Juice: A small glass of diluted beetroot juice can help manage blood pressure. Celery Sticks: Celery has natural compounds that may help lower blood pressure",
+          "no": "Beetroot Juice: A small glass of diluted beetroot juice can help manage blood pressure. Celery Sticks: Celery has natural compounds that may help lower blood pressure"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Suitable; restricting salt and increasing fluid intake is beneficial. Curry leaves juice can also help manage blood pressure",
+      "low": "Drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning",
+      "normal": {
+        "diabetes": {
+          "yes": "Suitable; curry leaves may also help regulate blood sugar levels.Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning ",
+          "no": "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning."
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning.",
+      "low":  "Drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning.",
+      "normal": {
+        "diabetes": {
+          "yes": " Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning.",
+          "no": "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning. ",
+      "low": "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning.",
+          "no": "Restrict salt intake and drink plenty of fluids (at least 8-10 glasses of water daily) Drink curry leaves (curry patta) juice initially 3 times a day (1 glassful) for 1-2 months and then reduce to only once in the morning."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+{     "tag": "Heat stroke",
+    "patterns": ["i am having Heat stroke", "i am experiencing Heat stroke","have heat stroke"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Heat_stroke_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Heat stroke in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": " If blood pressure is very low please consult the doctor otherwise use cucumber Slices: Offer thin cucumber slices for hydration and cooling. Aloe Vera Gel: Apply a small amount of cool aloe vera gel to the skin for relief.",
+      "normal": {
+        "diabetes": {
+          "yes": " Cucumber Slices: Offer thin cucumber slices for hydration and cooling. Aloe Vera Gel: Apply a small amount of cool aloe vera gel to the skin for relief.",
+          "no": " Cucumber Slices: Offer thin cucumber slices for hydration and cooling. Aloe Vera Gel: Apply a small amount of cool aloe vera gel to the skin for relief."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": " Mint Lemonade: Make a refreshing drink with mint leaves and lemon to cool the body. Watermelon Slices: Watermelon is hydrating and cooling, perfect for hot days.Also lemonade helpls with high blood pressure",
+      "low": "Mint Lemonade: Make a refreshing drink with mint leaves and lemon to cool the body. Watermelon Slices: Watermelon is hydrating and cooling, perfect for hot days",
+      "normal": {
+        "diabetes": {
+          "yes": "Mint Lemonade: Make a refreshing drink with mint leaves and lemon to cool the body.Don't use sugar in your lemonade ",
+          "no": "Mint Lemonade: Make a refreshing drink with mint leaves and lemon to cool the body. Watermelon Slices: Watermelon is hydrating and cooling, perfect for hot days"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. ",
+      "low": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. ",
+      "normal": {
+        "diabetes": {
+          "yes": " Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and limited sugar or no sugar if sugar is high. ",
+          "no": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. ",
+      "low":  " Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and limited sugar or no sugar if sugar is high. ",
+          "no": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and sugar. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and  sugar ",
+      "low": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and  sugar ",
+      "normal": {
+        "diabetes": {
+          "yes":  "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and limited sugar or no sugar if sugar is high.",
+          "no": "Have the cooling drink 'panna'. To prepare this, cook unripe or green mangoes in hot ashes. Extract the pulp and mix with water and  sugar ."
+        }
+      }
+    }
+  }
+]
+}},
+
+{     "tag": "Hair Loss",
+    "patterns": ["i am having hair loss", "my hair are fallling,","suffering from Hair Loss"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Hair_Loss_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Hair Loss in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Olive Oil Massage: Massage their scalp with a few drops of olive oil once a week for nourishment. Egg Yolk Mask: Apply a small amount of egg yolk to the scalp, leave for 10 minutes, and rinse well.",
+      "low": "Olive Oil Massage: Massage their scalp with a few drops of olive oil once a week for nourishment. Egg Yolk Mask: Apply a small amount of egg yolk to the scalp, leave for 10 minutes, and rinse well.",
+      "normal": {
+        "diabetes": {
+          "yes": "Olive Oil Massage: Massage their scalp with a few drops of olive oil once a week for nourishment. Egg Yolk Mask: Apply a small amount of egg yolk to the scalp, leave for 10 minutes, and rinse well.",
+          "no": "Olive Oil Massage: Massage scalp with a few drops of olive oil once a week for nourishment. Egg Yolk Mask: Apply a small amount of egg yolk to the scalp, leave for 10 minutes, and rinse well."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Amla (Indian Gooseberry) Juice: Apply diluted amla juice on the scalp for hair strength. Curry Leaves Oil: Massage with oil infused with curry leaves for healthy hair growth. ",
+      "low": "Amla (Indian Gooseberry) Juice: Apply diluted amla juice on the scalp for hair strength. Curry Leaves Oil: Massage with oil infused with curry leaves for healthy hair growth.",
+      "normal": {
+        "diabetes": {
+          "yes": "Amla (Indian Gooseberry) Juice: Apply diluted amla juice on the scalp for hair strength. Curry Leaves Oil: Massage with oil infused with curry leaves for healthy hair growth.",
+          "no": "Amla (Indian Gooseberry) Juice: Apply diluted amla juice on the scalp for hair strength. Curry Leaves Oil: Massage with oil infused with curry leaves for healthy hair growth."
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Apply a little almond oil on scalp frequently and massage. ",
+      "low": "Apply a little almond oil on scalp frequently and massage. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Apply a little almond oil on scalp frequently and massage.  ",
+          "no": "Apply a little almond oil on scalp frequently and massage. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Apply a little almond oil on scalp frequently and massage. ",
+      "low":  "Apply a little almond oil on scalp frequently and massage.  ",
+      "normal": {
+        "diabetes": {
+          "yes": "Apply a little almond oil on scalp frequently and massage.  ",
+          "no": "Apply a little almond oil on scalp frequently and massage. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Apply a little almond oil on scalp frequently and massage.  ",
+      "low": "Apply a little almond oil on scalp frequently and massage. ",
+      "normal": {
+        "diabetes": {
+          "yes":  "Apply a little almond oil on scalp frequently and massage. ",
+          "no": "Apply a little almond oil on scalp frequently and massage. "
+        }
+      }
+    }
+  }
+]
+}},
+
+
+{     "tag": "Fainting",
+    "patterns": ["i feel like i'll faint", "i am Fainting", "feeling weak i am Fainting"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Fainting_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Fainting in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Salted Crackers: Offer a few salted crackers if seem weak, to quickly replenish salts. Cool Washcloth: Place a cool, damp cloth on th forehead to feel stable",
+      "normal": {
+        "diabetes": {
+          "yes": "Salted Crackers: Offer a few salted crackers if seem weak, to quickly replenish salts. Cool Washcloth: Place a cool, damp cloth on th forehead to feel stable",
+          "no": "Salted Crackers: Offer a few salted crackers if seem weak, to quickly replenish salts. Cool Washcloth: Place a cool, damp cloth on th forehead to feel stable."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Use lemonade without putting salt in it,use sugar instead ",
+      "low": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+      "normal": {
+        "diabetes": {
+          "yes": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+          "no": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes."
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Use lemonade without putting salt in it,use sugar instead ",
+      "low": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+      "normal": {
+        "diabetes": {
+          "yes": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes. ",
+          "no": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes."
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Use lemonade without putting salt in it,use sugar instead ",
+      "low":  "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes. ",
+      "normal": {
+        "diabetes": {
+          "yes": " Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+          "no": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": " Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Use lemonade without putting salt in it,use sugar instead ",
+      "low": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes.",
+          "no": "Fresh Orange Juice: A small glass of fresh orange juice can help restore energy quickly. Salt and Lemon Water: Mix a pinch of salt and a few drops of lemon in water to help stabilize electrolytes."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+{     "tag": "Dark Circles ",
+    "patterns": ["Eyes are Having Dark Circles Around Them", "i am having dark circles", "my eyes are having dark circles around them"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Dark_Circles_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Dark Circles in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Hydrating Foods: Offer water-rich fruits like watermelon or cucumber slices to keep them hydrated. Gentle Massage: Lightly massage under the eyes with a warm, damp washcloth to improve blood flow.",
+      "normal": {
+        "diabetes": {
+          "yes": "Hydrating Foods: Offer water-rich fruits like watermelon or cucumber slices to keep them hydrated. Gentle Massage: Lightly massage under the eyes with a warm, damp washcloth to improve blood flow.",
+          "no": "Hydrating Foods: Offer water-rich fruits like watermelon or cucumber slices to keep them hydrated. Gentle Massage: Lightly massage under the eyes with a warm, damp washcloth to improve blood flow."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": " Rose Water Soak: Dip cotton pads in chilled rose water and place them on the eyes for a few minutes. Potato Slices: Place thin slices of cold potato on the eyes for a few minutes to help brighten the area.",
+      "low": "Rose Water Soak: Dip cotton pads in chilled rose water and place them on the eyes for a few minutes. Potato Slices: Place thin slices of cold potato on the eyes for a few minutes to help brighten the area.",
+      "normal": {
+        "diabetes": {
+          "yes": "Rose Water Soak: Dip cotton pads in chilled rose water and place them on the eyes for a few minutes. Potato Slices: Place thin slices of cold potato on the eyes for a few minutes to help brighten the area.",
+          "no": "Rose Water Soak: Dip cotton pads in chilled rose water and place them on the eyes for a few minutes. Potato Slices: Place thin slices of cold potato on the eyes for a few minutes to help brighten the area."
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+      "low": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off.  ",
+          "no": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+      "low":  "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off.  ",
+      "normal": {
+        "diabetes": {
+          "yes": " Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+          "no": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. "
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off.  ",
+      "low": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+      "normal": {
+        "diabetes": {
+          "yes":  "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. ",
+          "no": "Take 0.5 teaspoon tomato juice, Â¼ teaspoon lemon juice, a pinch of turmeric powder & a little gram flour. Make a paste & apply. Leave for 5 minutes & wash off. "
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+
+
+
+{     "tag": "Diarrhoea",
+    "patterns": ["i have Diarrhoea", "i am having Diarrhoea", "i am suffering from Diarrhoea"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Diarrhoea_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Diarrhoea in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "Probiotic Yogurt: Small servings of plain yogurt can help restore gut bacteria balance. Rice Water: Offer a few sips of water used to cook rice, which can soothe the stomach and reduce diarrhea.",
+      "normal": {
+        "diabetes": {
+          "yes": "Probiotic Yogurt: Small servings of plain yogurt(no sugar) can help restore gut bacteria balance. Rice Water: Offer a few sips of water used to cook rice, which can soothe the stomach and reduce diarrhea.",
+          "no": "Probiotic Yogurt: Small servings of plain yogurt can help restore gut bacteria balance. Rice Water: Offer a few sips of water used to cook rice, which can soothe the stomach and reduce diarrhea."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": " Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach.",
+      "low": "Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach.",
+      "normal": {
+        "diabetes": {
+          "yes": "Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water(Use caution with honey due to sugar content). Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach.",
+          "no": "Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach."
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach",
+      "low": "Combine 0.5 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 0.5 teaspoon twice daily. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Combine 0.5 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey(little amount) and make into a thick paste. Take 0.5 teaspoon twice daily.  ",
+          "no": "Combine 0.5 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 0.5 teaspoon twice daily. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach",
+      "low":  "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey(little amount) and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water. ",
+          "no": "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Mint & Honey Water: Mint can calm the stomach; mix a few leaves with honey in water. Carrot Soup: A small bowl of carrot soup can help replenish lost nutrients and soothe the stomach ",
+      "low": "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water.",
+      "normal": {
+        "diabetes": {
+          "yes":  "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey(little amount ) and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water.",
+          "no": "Combine 1 teaspoon each powdered ginger, powdered cumin, and powdered cinnamon with honey and make into a thick paste. Take 1 teaspoon thrice daily. Boil 1 teaspoon cumin seeds in a glass of water."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+{     "tag": "Guidelines of a Diabetics Diet",
+    "patterns": ["i need Guidelines of a Diabetics Diet", "provide me Guidelines of a Diabetics Diet", "i am suffering from diabetieshelp me with Guidelines of a Diabetics Diet"],
+    "responses": [
+{
+  "response": " Let's gather some details to help you better plan the diet.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Guidelines_of_a_Diabetics_Diet_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Guidelines of a Diabetics Diet in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure as well as diabeties.",
+      "low": "Low-Glycemic Fruits: Use mashed berries or chopped apple pieces as a snack. Avocado: Serve mashed avocado as a spread or in small bites for healthy fats.",
+      "normal": {
+        "diabetes": {
+          "yes": "Low-Glycemic Fruits: Use mashed berries or chopped apple pieces as a snack. Avocado: Serve mashed avocado as a spread or in small bites for healthy fats.",
+          "no": "Low-Glycemic Fruits: Use mashed berries or chopped apple pieces as a snack. Avocado: Serve mashed avocado as a spread or in small bites for healthy fats."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": "Lean Proteins: Include proteins like chicken, or eggs (without yolk )in meals to balance blood sugar. Whole Grain Snacks: Swap white bread or crackers for whole grain options to reduce sugar spikes ",
+      "low": "Lean Proteins: Include proteins like chicken, fish, or eggs in meals to balance blood sugar. Whole Grain Snacks: Swap white bread or crackers for whole grain options to reduce sugar spikes",
+      "normal": {
+        "diabetes": {
+          "yes": "Lean Proteins: Include proteins like chicken, fish, or eggs in meals to balance blood sugar. Whole Grain Snacks: Swap white bread or crackers for whole grain options to reduce sugar spikes",
+          "no": "Lean Proteins: Include proteins like chicken, fish, or eggs in meals to balance blood sugar. Whole Grain Snacks: Swap white bread or crackers for whole grain options to reduce sugar spikes"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "Eat plenty of vegetables like lettuce, tomato, and fruits. Use fruits and vegetables like banana, cheeku, leechi, dry fruits, mango, potatoes, carrots, peas sparingly. ",
+      "low": "Eat plenty of vegetables like lettuce, tomato, and fruits. Use fruits and vegetables like banana, cheeku, leechi, dry fruits, mango, potatoes, carrots, peas sparingly. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options ",
+          "no": "Eat plenty of vegetables like lettuce, tomato, and fruits. Use fruits and vegetables like banana, cheeku, leechi, dry fruits, mango, potatoes, carrots, peas sparingly. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options",
+      "low":  " Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options",
+      "normal": {
+        "diabetes": {
+          "yes": " Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options",
+          "no": "Eat plenty of vegetables like lettuce, tomato, and fruits. Use fruits and vegetables like banana, seedless grapes, cheeku, leechi, custard apple, dry fruits, mango, raisins, potatoes, jackfruit, carrots, peas, beans, sweet potato, beetroot sparingly."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options ",
+      "low": "Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options",
+      "normal": {
+        "diabetes": {
+          "yes":  "Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options",
+          "no": "Limit intake of high-sugar fruits (like mango and raisins) and starchy vegetables (like potatoes and sweet potatoes) while prioritizing low-glycemic options"
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+{     "tag": "Diabetes",
+    "patterns": ["i have Diabetes", "i am having Diabetes", "suffering from Diabetes"],
+    "responses": [
+{
+  "response": "I'm sorry to hear about that. Let's gather some details to help you better.",
+  "follow_up": {
+    "questions": [
+      { "question": "What is your age?", "key": "age" },
+      { "question": "What is your blood pressure (if known)?", "key": "bp" },
+      { "question": "Are you diabetic?", "key": "diabetes" }
+    ],
+    "context_set": "collecting_Diabetes_data"
+  }
+}
+],
+"logic": {
+"age_conditions": [
+  {
+    "range": [0, 2],
+    "response": "Please consult a doctor for Diabetes in infants."
+  },
+  {
+    "range": [3, 4],
+    "bp_check": {
+      "high": "Please consult a doctor due to high blood pressure.",
+      "low": "High-Fiber Veggies: Offer pureed or soft vegetables like carrots, peas, and spinach to help regulate blood sugar. Portion Control: Serve smaller, more frequent meals to help stabilize blood sugar levels.",
+      "normal": {
+        "diabetes": {
+          "yes": "High-Fiber Veggies: Offer pureed or soft vegetables like carrots, peas, and spinach to help regulate blood sugar. Portion Control: Serve smaller, more frequent meals to help stabilize blood sugar levels.",
+          "no": "High-Fiber Veggies: Offer pureed or soft vegetables like carrots, peas, and spinach to help regulate blood sugar. Portion Control: Serve smaller, more frequent meals to help stabilize blood sugar levels."
+          
+        }
+      }
+    }
+  },
+  {
+    "range": [5, 12],
+    "bp_check": {
+      "high": " Fenugreek Water: Soak a few fenugreek seeds in water overnight; give them a few sips of the water in the morning. Nuts as Snacks: A small serving of almonds or walnuts (if no allergies) can help with blood sugar control",
+      "low": "Fenugreek Water: Soak a few fenugreek seeds in water overnight; give them a few sips of the water in the morning. Nuts as Snacks: A small serving of almonds or walnuts (if no allergies) can help with blood sugar control",
+      "normal": {
+        "diabetes": {
+          "yes": "Fenugreek Water: Soak a few fenugreek seeds in water overnight; give them a few sips of the water in the morning. Nuts as Snacks: A small serving of almonds or walnuts (if no allergies) can help with blood sugar control",
+          "no": "Fenugreek Water: Soak a few fenugreek seeds in water overnight; give them a few sips of the water in the morning. Nuts as Snacks: A small serving of almonds or walnuts (if no allergies) can help with blood sugar control"
+        }
+      }
+    }
+  },
+  {
+    "range": [13, 19],
+    "bp_check": {
+      "high": "consult the doctor if you have bp and sugar too ",
+      "low": "For diabetes, diet restriction & light exercise like walking is important. Grapefruit is a splendid thing in the diet of a diabetic. Have 2 fruits at a time, 2-3 times daily. ",
+      "normal": {
+        "diabetes": {
+          "yes": "Generally suitable; grapefruit can help regulate blood sugar levels, but monitor portion sizes to avoid excess sugars. For diabetes, diet restriction & light exercise like walking is important. Grapefruit is a splendid thing in the diet of a diabetic. Have 2 fruits at a time, 2-3 times daily. ",
+          "no": "diet restriction & light exercise like walking is important. Grapefruit is a splendid thing . Have 2 fruits at a time, 2-3 times daily. "
+        }
+      }
+    }
+  },
+  {
+    "range": [20, 59],
+    "bp_check": {
+      "high":"consult the doctor if you have bp and sugar too ",
+      "low":  " For diabetes, diet restriction & light exercise like walking is a must as this controls the sugar level. Grape fruit is a splendid thing in the diet of a diabetic. Have 3 fruits at a time, 3 times daily.",
+      "normal": {
+        "diabetes": {
+          "yes": "For diabetes, diet restriction & light exercise like walking is a must as this controls the sugar level. Grape fruit is a splendid thing in the diet of a diabetic. Have 3 fruits at a time, 3 times daily. ",
+          "no": "diet restriction & light exercise like walking is important. Grapefruit is a splendid thing . Have 2 fruits at a time, 2-3 times daily."
+        }
+      }
+    }
+  },
+  {
+    "range": [60, 120],
+    "bp_check": {
+      "high": "For diabetes, diet restriction & light exercise like walking is a must as this controls the sugar level. Grapefruit is a splendid thing in the diet of a diabetic. Have 3 fruits at a time, 3 times daily. ",
+      "low": "For diabetes, diet restriction & light exercise like walking is a must as this controls the sugar level. Grapefruit is a splendid thing in the diet of a diabetic. Have 3 fruits at a time, 3 times daily.",
+      "normal": {
+        "diabetes": {
+          "yes":  "For diabetes, diet restriction & light exercise like walking is a must as this controls the sugar level. Grapefruit is a splendid thing in the diet of a diabetic. Have 3 fruits at a time, 3 times daily.",
+          "no": "diet restriction & light exercise like walking is important. Grapefruit is a splendid thing . Have 2 fruits at a time, 2-3 times daily."
+        }
+      }
+    }
+  }
+]
+}},
+
+
+
+
+{
+      "tag": "cold_cough",
+      "patterns": ["I have a cold", "I'm sneezing", "I feel congested", "I have a runny nose", "I'm coughing"],
+      "responses": [
+        {
+          "response": "It sounds like you're dealing with a cold. Can I ask you a few questions to suggest a remedy?",
+          "follow_up": {
+            "questions": [
+              { "question": "Do you have a fever?", "key": "fever" },
+              { "question": "How long have you had these symptoms?", "key": "cold_duration" }
+            ],
+            "context_set": "collecting_cold_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 1],
+            "response": "Consult a doctor for cold and cough in infants."
+          },
+          {
+            "range": [2, 4],
+            "response": "Honey has natural soothing and mild antibacterial properties. Give ½ to 1 teaspoon of honey as needed to coat the throat and reduce coughing. Sit with your toddler in a steamy bathroom (run a hot shower with the door closed) for about 10–15 minutes. The steam can loosen mucus and ease coughing by keeping the airways moist."
+          },
+          {
+            "range": [5, 12],
+            "response": "Let your child breathe in water vapors from a warm bath or shower. This can help loosen mucus and, as a bonus, calm your child before bed. A teaspoon of honey can help combat coughing and soothe your child's throat. Drinking warm liquids such as caffeine-free tea, broth, or hot water with lemon can help relieve a cough by loosening mucus and soothing a sore throat."
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Limit jaggery intake or replace it with a less sugary alternative.",
+              "low": "Use ginger decoction with caution to avoid lowering BP further.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid jaggery, or substitute it with a diabetic-safe sweetener; ginger decoction is suitable.",
+                  "no": "1-2 gm powder of dry rhizome with jaggery twice a day in divided doses. 5 ml decoction prepared from a piece of ginger every morning prevents recurrent attacks of cold."
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Limit jaggery intake or replace it with a less sugary alternative.",
+              "low": "Use ginger decoction with caution to avoid lowering BP further.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid jaggery, or substitute it with a diabetic-safe sweetener; ginger decoction is suitable.",
+                  "no": "2-5 gm powder of dry rhizome with jaggery thrice a day in divided doses. 10 ml decoction prepared from a piece of ginger every morning prevents recurrent attacks of cold."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Limit jaggery intake or replace it with a less sugary alternative.",
+              "low": "Use ginger decoction with caution to avoid lowering BP further.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid jaggery, or substitute it with a diabetic-safe sweetener; ginger decoction is suitable.",
+                  "no": "2-5 gm powder of dry rhizome with jaggery thrice a day in divided doses. 10 ml decoction prepared from a piece of ginger every morning prevents recurrent attacks of cold."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "acidity",
+      "patterns": ["I have acidity", "suffering from acidity", "I'm experiencing acidity"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your acidity. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_acidity_data"
+          
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult your doctor."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Reduce or avoid jaggery, as frequent sugar intake can raise blood pressure",
+              "low": "Drink more water to increase blood volume and prevent dehydration.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid or minimize jaggery due to high sugar content.",
+                  "no": "Banana can help with acidity issues in children. Crush a tiny amount of carom seeds and mix it with warm water. Offer a small sip to your children."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Reduce or avoid jaggery, as frequent sugar intake can raise blood pressure.",
+              "low": "Drink more water to increase blood volume and prevent dehydration.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid or minimize jaggery due to high sugar content. ",
+                  "no": " Banana can help with acidity issues in children. Crush a tiny amount of carom seeds and mix it with warm water. Offer a small sip to your children."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Reduce or avoid jaggery, as frequent sugar intake can raise blood pressure..",
+              "low": "Drink more water to increase blood volume and prevent dehydration.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid or minimize jaggery due to high sugar content..",
+                  "no": "Take a small piece of jaggery every hour. Drink coconut water 2-3 times a day. Have a plateful of watermelon and/or cucumber every hour. Harad juice, 0.5-1 teaspoon daily after meals is effective in controlling acidity. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Reduce or avoid jaggery, as frequent sugar intake can raise blood pressure..",
+              "low": "Drink more water to increase blood volume and prevent dehydration..",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid or minimize jaggery due to high sugar content.",
+                  "no": "Take a tiny piece of jaggery (gur) every hour. Just keep it in the mouth and slowly suck it till acidity subsides. Drink coconut water 3-4 times a day. Have a plateful of watermelon (tarbooz) and/or cucumber (kheera) every hour. Harad juice, 1-2 teaspoon daily after meals is very effective in controlling acidity."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Reduce or avoid jaggery, as frequent sugar intake can raise blood pressure.",
+              "low": "Drink more water to increase blood volume and prevent dehydration..",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid or minimize jaggery due to high sugar content.",
+                  "no": "Avoid drinking tea and coffee immediately after meals. Take freshly prepared apple juice an hour before meals. Juice of beetroot taken 1-2 times daily is an excellent remedy for anaemia. Combine apple and beetroot for the juice."
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+    ,
+    {
+      "tag": "Anaemia",
+      "patterns": ["I have anaemia", "suffering from anaemia", "I'm experiencing anaemia"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your anaemia. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_Anaemia_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for anaemia in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Suitable, though moderation with beetroot juice is recommended as it may slightly lower blood pressure.",
+              "low": "Safe, but use beetroot in moderation due to its potential to further lower blood pressure..",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable with caution limit apple and beetroot juice intake to control natural sugar levels.",
+                  "no": "Infants and toddlers from 1 to 3 years old should have foods rich in iron. They include cereal that has iron added, red meats, and vegetables with iron. Fruits with vitamin C are also important. Vitamin C helps the body absorb the iron."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable, though moderation with beetroot juice is recommended as it may slightly lower blood pressure.",
+              "low": "Safe, but use beetroot in moderation due to its potential to further lower blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable with caution limit apple and beetroot juice intake to control natural sugar levels.",
+                  "no": " eating an adequate amount of green vegetables, such as celery, spinach and broccoli. These vegetables are a great source of iron. A great way to increase the iron intake of your child is black sesame seeds. Soak the seeds in water for two to three hours and grind it into a paste. You can give your child a spoonful of this paste every day, along with honey."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable, though moderation with beetroot juice is recommended as it may slightly lower blood pressure.",
+              "low": "Safe, but use beetroot in moderation due to its potential to further lower blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable with caution limit apple and beetroot juice intake to control natural sugar levels.",
+                  "no": "Avoid drinking tea and coffee immediately after meals. Take freshly prepared apple juice before meals or before sleeping. Juice of beetroot taken 1 time daily is an excellent remedy for anaemia. Combine apple and beetroot for the juice. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Suitable, though moderation with beetroot juice is recommended as it may slightly lower blood pressure..",
+              "low": "Safe, but use beetroot in moderation due to its potential to further lower blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable with caution limit apple and beetroot juice intake to control natural sugar level.",
+                  "no": "Avoid drinking tea and coffee immediately after meals as the tannin present in these interferes in the absorption of iron from the food. Take freshly prepared apple juice an hour before meals or just before retiring for the night. For proper absorption of the juice, remember the stomach should be relatively empty when you have the juice and also do not take anything for about half an hour after the juice. Juice of beetroot taken 1-2 times daily is an excellent remedy for anaemia especially for children and teenagers. Combine apple and beetroot for the juice."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable, though moderation with beetroot juice is recommended as it may slightly lower blood pressure",
+              "low": "Safe, but use beetroot in moderation due to its potential to further lower blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable with caution limit apple and beetroot juice intake to control natural sugar level.",
+                  "no": "Avoid drinking tea and coffee immediately after meals. Take freshly prepared apple juice an hour before meals. Juice of beetroot taken 1-2 times daily is an excellent remedy for anaemia. Combine apple and beetroot for the juice.."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "Chest_Congestion",
+      "patterns": ["I have chest congestion", "siffering from chest congestion", "I'm experiencing chest congestion"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your chest congestion Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_Chest_Congestion_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor chest congestion in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Please consult a doctor due to high blood pressure.",
+              "low": "Please consult a doctor due to low blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Please consult a doctor due to diabetes.",
+                  "no": " For toddlers who have yet to learn how to blow their noses, a bulb syringe can help clear the nasal passages. A bulb syringe, or nasal aspirator, has a blunt tip attached to a flexible bulb. Pair it with saline, or saltwater, drops for maximum effectiveness. These are available over the counter, or can be made at home by mixing a 1/2 teaspoon of salt with 8 ounces of warm water. Make a fresh batch each day."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable, though limit honey due to sugar content.",
+              "low": "Suitable, though limit honey due to sugar content.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Limit or avoid honey due to its high glycemic index; otherwise suitable",
+                  "no": "Use heat on their chest.Â If your childâ€™s cough hurts, put a warm compress on their chest. Add some humidity.Â A steamy bath or shower may help your childâ€™s breathing. Adding a cool mist humidifier in their room overnight can also help. Increase fluids.Â If you give your child extra fluids, it can help soothe a sore throat and make the mucus in your child lungs easier to cough up. Try warm lemonade, soup, and warm water with lemon and honey. Use heat on their chest. If your children cough hurts, put a warm compress on their chest. Add some humidity.A steamy bath or shower may help your children breathing. Adding a cool mist humidifier in their room overnight can also help."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable, though limit honey due to sugar content.",
+              "low": "Suitable, though limit honey due to sugar content.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Limit or avoid honey due to its high glycemic index; otherwise suitable.",
+                  "no": "Add to 250 ml of boiling water, 0.5 teaspoon carom seeds powder along with 0.5 teaspoon turmeric powder. Cool. Take 1 tablespoon of this mixture along with 0.5 teaspoon honey."
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Suitable, though limit honey due to sugar content.",
+              "low": "Suitable, though limit honey due to sugar content.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Limit or avoid honey due to its high glycemic index; otherwise suitable.",
+                  "no": "Add to Â½ litre of boiling water, 1 teaspoon carom seeds (ajwain) powder along with 1 teaspoon turmeric (haldi) powder. Cool. Take 1 tablespoon of this mixture along with 1 teaspoon honey."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable, though limit honey due to sugar content.",
+              "low": "Suitable, though limit honey due to sugar content..",
+              "normal": {
+                "diabetes": {
+                  "yes": "Limit or avoid honey due to its high glycemic index; otherwise suitable.",
+                  "no": "Add to Â½ litre of boiling water, 1 teaspoon carom seeds powder along with 1 teaspoon turmeric powder. Cool. Take 1 tablespoon of this mixture along with 1 teaspoon honey."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "High Cholesterol",
+      "patterns": ["I have high cholesterol", "suffering from high cholesterol", "I'm experiencing high cholesterol"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your high cholesterol. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_high_cholesterol_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for fever in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Suitable; both onion and garlic can help manage blood pressure.",
+              "low": "Suitable; both onion and garlic can help manage blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable; both onion and garlic can also help regulate blood sugar.",
+                  "no": " You can also let them eat their water. If your baby or toddler is fussy about drinking water or milk, give them juicy fruit and vegetables like watermelon, plums, or cucumbers."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable; both onion and garlic can help manage blood pressure.",
+              "low": "Suitable; both onion and garlic can help manage blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable; both onion and garlic can also help regulate blood sugar.",
+                  "no": "Mix 1 liter of clean water with 6 teaspoons of sugar and Â½ teaspoon of salt. Stir well until dissolved. Offer small amounts every few minutes."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable; both onion and garlic can help manage blood pressure.",
+              
+              
+              "low": "Suitable; both onion and garlic can help manage blood pressure..",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable; both onion and garlic can also help regulate blood sugar.",
+                  "no": "Finely dice half an onion and mix it with 1/2 cup buttermilk along with 1/8 teaspoon black pepper powder and drink. Regularly intake garlic cloves for a few days. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Suitable; both onion and garlic can help manage blood pressure.",
+              "low": "Suitable; both onion and garlic can help manage blood pressure.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable; both onion and garlic can also help regulate blood sugar.",
+                  "no": "Finely dice an onion and mix it with 1 cup buttermilk along with Â¼ teaspoon black pepper (kali mirch) powder and drink. Regularly intake garlic (lasan) cloves for a few days."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable; both onion and garlic can help manage blood pressure",
+              "low": "Suitable; both onion and garlic can help manage blood pressure",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable; both onion and garlic can also help regulate blood sugar.",
+                  "no": "Finely dice an onion and mix it with 1 cup buttermilk along with Â¼ teaspoon black pepper powder and drink. Regularly intake garlic cloves for a few days."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "fever",
+      "patterns": ["I have fever", "suffering fever", "I'm experiencing fever"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your fever. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_fever_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for fever in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Suitable with caution for honey and palm candy optional or reduced quantity",
+              "low": "Use with caution for fenugreek tea and neem decoction",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid honey and palm candy; otherwise, suitable",
+                  "no": " Dress your toddler in light, breathable clothing and keep the room at a comfortable temperature. Overdressing or bundling can raise body temperature, so keep them cool with light layers. Use a lukewarm sponge or washcloth to gently wipe your toddlerâ€™s body. Avoid cold water, as it can cause shivering, which may raise body temperature. Repeat every few hours if needed."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable with caution for honey and palm candy optional or reduced quantity",
+              "low": "Use with caution for fenugreek tea and neem decoction",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid honey and palm candy; otherwise, suitable.",
+                  "no": "Children are unlikely to appreciate bathing when they are sick. An alternative option is to place a warm washcloth on the childâ€™s forehead to help soothe the fever. Like adults, children with a fever also need plenty of fluids. However, it can be difficult to get young children to drink extra water."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable with caution for honey and palm candy optional or reduced quantity",
+              "low": "Use with caution for fenugreek tea and neem decoction",
+              "normal": {
+                "diabetes": {
+                  "yes": "Avoid honey and palm candy; otherwise, suitable.",
+                  "no": "Extract 0.5 teaspoon each juice of tulsi leaves and bel flowers. Add 0.5 teaspoon honey. Take twice a day. Tea made by boiling 0.5 teaspoon fenugreek seeds, taken twice a day provides an excellent remedy. Grind a few roots of the mango tree into a fine paste and apply on the palm and soles of the patients. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Suitable with caution for honey and palm candy optional or reduced quantity.",
+              "low": "Use with caution for fenugreek tea and neem decoction.",
+              "normal": {
+                "diabetes": {
+                  "yes": "void honey and palm candy; otherwise, suitable.",
+                  "no": "Extract 1 teaspoon each juice of tulsi leaves and bel flowers. Add 1 teaspoon honey. Take twice a day. Tea made by boiling 1 teaspoon fenugreek seeds (methi dana), taken twice or thrice a day provides excellent remedy. (A little honey or lemon juice can be added to improve the flavor). Grind a few roots of the mango tree into a fine paste and apply on the palm and soles of the patients. Neem leaf decoction taken with pepper powder lowers temperature. Â½ teaspoon ground pepper is mixed in warm water along with 1 teaspoon palm candy (sugar obtained from palm). This drink is taken at bedtime."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable with caution for honey and palm candy optional or reduced quantity.",
+              "low": "Use with caution for fenugreek tea and neem decoction.",
+              "normal": {
+                "diabetes": {
+                  "yes": "void honey and palm candy; otherwise, suitable.",
+                  "no": "Extract 1 teaspoon each juice of tulsi leaves and bel flowers. Add 1 teaspoon honey. Take twice a day. Tea made by boiling 1 teaspoon fenugreek seeds, taken twice or thrice a day provides an excellent remedy. Grind a few roots of the mango tree into a fine paste and apply on the palm and soles of the patients."
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "tag": "Headache",
+      "patterns": ["I have headache", "My head hurts", "I'm experiencing head ache"],
+      "responses": [
+        {
+          "response": "I'm sorry to hear about your head ache. Let's gather some details to help you better.",
+          "follow_up": {
+            "questions": [
+              { "question": "What is your age?", "key": "age" },
+              { "question": "What is your blood pressure (if known)?", "key": "bp" },
+              { "question": "Are you diabetic?", "key": "diabetes" }
+            ],
+            "context_set": "collecting_headache_data"
+          }
+        }
+      ],
+      "logic": {
+        "age_conditions": [
+          {
+            "range": [0, 2],
+            "response": "Please consult a doctor for headache in infants."
+          },
+          {
+            "range": [3, 4],
+            "bp_check": {
+              "high": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "low": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in general, but limit apple quantity due to natural sugars.",
+                  "no": "Avoid sweets."
+                }
+              }
+            }
+          },
+          {
+            "range": [5, 12],
+            "bp_check": {
+              "high": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "low": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in general, but limit apple quantity due to natural sugars.",
+                  "no": "Get out of the heat. Apply aÂ cool, damp cloth or wrapped ice pack on your childâ€™s forehead. GentlyÂ massageÂ the neck and shoulders. AvoidÂ screens such as TVs, tablets or cell phones. Always have the screen dimmed."
+                }
+              }
+            }
+          },
+          {
+            "range": [13, 19],
+            "bp_check": {
+              "high": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "low": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in general, but limit apple quantity due to natural sugars.",
+                  "no": "Roast some ajwain dry on a tawa. Tie it in a muslin bag and sniff frequently. Make a paste of 1 powdered clove and salt. Apply this paste on the forehead. A paste made of dry ginger with a little water or milk when applied to the forehead also gives relief. A ripe apple, after removing the upper rind and the inner hard portion should be taken with a little salt every morning on an empty stomach. Continue for a week. "
+                }
+              }
+            }
+          },
+          {
+            "range": [20, 59],
+            "bp_check": {
+              "high": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "low": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals.",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in general, but limit apple quantity due to natural sugars.",
+                  "no": "Roast some ajwain dry on a tawa. Tie it in a muslin bag and sniff frequently. Make a paste of 2-3 powdered cloves (laung) and salt. Apply this paste on the forehead. A paste made of dry ginger (sonth) with a little water or milk when applied to the forehead also gives relief. A ripe apple, after removing the upper rind and the inner hard portion should be taken with a little salt every morning on an empty stomach. Continue for a week. This yields good results even in case of chronic headaches."
+                }
+              }
+            }
+          },
+          {
+            "range": [60, 120],
+            "bp_check": {
+              "high": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals",
+              "low": "Suitable with minimal salt for apple remedy and use caution for clove paste in sensitive individuals",
+              "normal": {
+                "diabetes": {
+                  "yes": "Suitable in general, but limit apple quantity due to natural sugars.",
+                  "no": "Roast some ajwain dry on a tawa. Tie it in a muslin bag and sniff frequently. Make a paste of 2-3 powdered cloves and salt. Apply this paste on the forehead. A paste made of dry ginger with a little water or milk when applied to the forehead also gives relief. A ripe apple, after removing the upper rind and the inner hard portion should be taken with a little salt every morning on an empty stomach. Continue for a week."
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+   
+  ]
+}
+    
